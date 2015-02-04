@@ -1,19 +1,36 @@
 week1
---------------------------------
+---------------------------------------
 I. Introduction
---------------------------------
-
+---------------------------------------
 What is Machine Learning
 ------------------------
-Tom Mitchell(1998): Well-posed Learning Problem: A computer program is said to learn
-from experience E with respect to some task T and some performance measure P, if its
-performance on T, as measured by P, improves with experience E.
+Tom Mitchell(1998): Well-posed Learning Problem: A computer program is said to
+learn from experience E with respect to some task T and some performance measure
+P, if its performance on T, as measured by P, improves with experience E.
 
 Supervised Learning:
 --------------------
 "right answers" given
-regression: predict continuous valued output
+regression: predict continuous real-valued output
+classification: predict discrete-valued output
 
 Unsupervised Learning:
 ----------------------
-Cocktail partiy problem algorithm
+Cocktail party problem algorithm
+
+---------------------------------------
+ II. Linear Regression with One Variable
+---------------------------------------
+Cost Function:
+--------------
+h(x) = Ø0 + Ø1x
+minimize J(Ø0, Ø1) = (1 / 2m) * ∑(h(x) - y)^2 (m = number of training examples)
+=> cost function / squared error function
+=> visualized using Contour plots / Contour figures
+=> convex function (bowl-shaped function)
+
+Gradient decent:
+----------------
+Ø <= Ø - å * (∆ / ∆Ø) * J(Ø) (repeate updating Øs until convergence)
+=> å : learning rate
+=> (∆ / ∆Ø) * J(Ø) : derivative
