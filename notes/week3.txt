@@ -1,0 +1,21 @@
+Week 3
+---------------------------------------
+VI. Logistic Regression
+---------------------------------------
+Classification:
+0: Negative class (e.g. benign tumor)
+1: positive class (e.g. malignant tumor)
+
+Logistic Regression Model:
+--------------------------
+Want 0 < h(x) < 1
+h(x) = g(Theta^T * x)
+where g(z) = 1 / (1 + e^(-z)) ==> sigmoid function / logistic function
+- Predict y = 1, when Theta^T * x > 0
+- Predict y = 0, when Theta^T * x < 0
+
+Cost function:
+--------------
+Linear Cost(h(x), y) = (h(x) - y)^2 / 2
+Logistic Cost(h(x), y) = -log(h(x)) if y = 1
+                         -log(1-h(x)) if y = 0
