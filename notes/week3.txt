@@ -51,3 +51,41 @@ initialTheta = zeros(2, 1);
 Multi-class classification:
 ---------------------------
 h(x)i = P(y=i|x, theta) (i = 1, 2, 3)
+
+---------------------------------------
+VII. Regularization
+---------------------------------------
+Overfitting:
+------------
+Underfit/High bias (use linear expression describing curve)
+Overfit/High variance
+Overfitting:
+    If we have too many features, the learned hypothesis may fit the training set
+    very well (J(Theta) = 0), but fail to generalize to new examples (predict
+    prices on new examples).
+
+Addressing overfitting:
+Options:
+    1. Reduce number of features.
+        ― Manually select which features to keep.
+        ― Model selection algorithm (later in course).
+    2. Regularization.
+        ― Keep all the features, but reduce magnitude/values of parameters thetaj.
+        ― Works well when we have a lot of features, each of which contributes a
+        bit to predicting y.
+
+Regularization:
+---------------
+J(theta) = [∑(h(xi) - yi)^2 + lamda∑thetaj^2] / 2m ------ i=1~m, j=1~n
+lamda: regularization parameter
+    - if lamda too large, algorithm results in underfitting
+
+thetaj = thetaj - alpha[∑(h(x) - y)xj / m + ∑lamda*thetaj/m]
+=> thetaj(1 - alpha*lamda/m) - alpha[...]
+
+Normal equation:
+    theta = (X^T * X + lamda[01...1])^-1 * X^T * y
+
+Regularized logistic regression:
+--------------------------------
+J(theta) = -[...] + lamda∑thetaj^2] / 2m
