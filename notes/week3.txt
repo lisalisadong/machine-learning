@@ -16,6 +16,38 @@ where g(z) = 1 / (1 + e^(-z)) ==> sigmoid function / logistic function
 
 Cost function:
 --------------
+J(Theta) = ∑Cost(h(xi), yi) / m  (i = 1~m)
 Linear Cost(h(x), y) = (h(x) - y)^2 / 2
 Logistic Cost(h(x), y) = -log(h(x)) if y = 1
                          -log(1-h(x)) if y = 0
+=> Cost(h(x), y) = -ylog(h(x)) - (1- y)log(1-h(x))
+
+Optimization algorithm:
+-----------------------
+Given Theta, we have code that can compute
+    - J(Theta)
+    - ∆J(Theta)/∆Thetaj
+Optimization algorithms:
+    - Gradient descent
+    - Conjugate descent
+    - BFGS
+    - L-BFGS
+Advantages of the other three:
+    - no need to manually pick learning rate
+    - often faster than gradient descent
+Disadvantage: more complex
+
+function [jVal, gradient] = costFunction(theta)
+    jVal = [code to compute J(theta)];
+    gradient(1) = [code to compute ∆J(theta) / ∆theta0];
+    gradient(2) = [code to compute ∆J(theta) / ∆theta1];
+    ...
+    gradient(n + 1) = [code to compute ∆J(theta) / ∆thetan]
+
+options = optimset('GradObj', 'on', 'MaxIter', '100');
+initialTheta = zeros(2, 1);
+[optTheta, functionVal, exitFlag] = fminunc(@costFunction, initialTheta, options);
+
+Multi-class classification:
+---------------------------
+h(x)i = P(y=i|x, theta) (i = 1, 2, 3)
